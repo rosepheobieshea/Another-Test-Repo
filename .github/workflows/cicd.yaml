@@ -1,6 +1,13 @@
 name: Terraform CI/CD
 
 on:
+  workflow_dispatch: # This enables the manual force-run button
+    inputs:
+      reason:
+        description: 'Reason for forcing this run'
+        required: false
+        default: 'Manual trigger'
+
   push:
     branches: [cicd-floci]
   pull_request:
