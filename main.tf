@@ -1,5 +1,3 @@
-#some thing some thign
-#more things to try
 terraform {
   required_providers {
     aws = {
@@ -43,7 +41,7 @@ variable "student_name" {
 }
 
 resource "aws_s3_bucket" "website" {
-  bucket = "${var.student_nam}-course-website"
+  bucket = "${var.student_name}-course-website"
 }
 
 resource "aws_s3_bucket_versioning" "website" {
@@ -91,7 +89,7 @@ resource "aws_dynamodb_table" "items" {
 }
 
 resource "aws_iam_role" "lambda" {
-  name = "${var.student_nam}-lambda-role"
+  name = "${var.student_name}-lambda-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
