@@ -9,7 +9,7 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-   steps:
+    steps:
       - name: Check out repository
         uses: actions/checkout@v7
 
