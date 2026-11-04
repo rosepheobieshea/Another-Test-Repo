@@ -9,12 +9,7 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-    env:
-      AWS_ACCESS_KEY_ID: test
-      AWS_SECRET_ACCESS_KEY: test
-      AWS_DEFAULT_REGION: us-east-1
-      TF_VAR_student_name: student
-    steps:
+   steps:
       - name: Check out repository
         uses: actions/checkout@v7
 
@@ -67,7 +62,4 @@ jobs:
         run: |
           aws dynamodb list-tables --endpoint-url http://localhost:4566
           aws lambda list-functions --endpoint-url http://localhost:4566
-  
-      - name: Destroy
-        if: github.event_name == 'push'
-        run: terraform destroy -input=false -auto-approve
+ 
